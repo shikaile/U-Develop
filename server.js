@@ -78,6 +78,7 @@ db.query(sql, params, (err, result) => {
     });
 });
 
+//api post to add candidate to database
 app.post('/api/candidate', ({body}, res) => {
     const errors = inputCheck(body,'first_name', 'last_name', 'industry_connected');
 
@@ -101,20 +102,6 @@ app.post('/api/candidate', ({body}, res) => {
             });
     });
 });
-
-// database query to create single row/candidate
-// const sql = `INSERT INTO candidates (id, first_name, last_name, industry_connected)
-//     VALUES (?,?,?,?)`;
-
-// const params = [1, 'Ronald', 'Firbank', 1];
-
-// db.query(sql, params, (err, results) => {
-//     if (err){
-//         console.log(err);
-//     }
-//     console.log(results);
-// });
-
 
 // catchcall route, must go at bottom of previous calls 
 app.use((req, res) => {
